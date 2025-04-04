@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIMITI MATEMATICI | Teoria ed Esercizi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --dark-color: #34495e;
+            --light-color: #ecf0f1;
+            --text-color: #2c3e50;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--light-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2 i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--secondary-color);
+        }
+        
+        .team-member h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member p {
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Theory Sections */
+        .theory-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .theory-text {
+            padding-right: 1rem;
+        }
+        
+        .theory-image {
+            text-align: center;
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        /* Calculator Section */
+        .calculator-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .input-group input, .input-group select {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .result-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 6px;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        /* Graph Section */
+        .graph-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        canvas {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--white);
+        }
+        
+        /* Exercises Section */
+        .exercise {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exercise::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+        
+        .exercise h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .exercise h3 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .solution {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #ccc;
+        }
+        
+        .solution-toggle {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .solution-toggle:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Step by step solution */
+        .step-by-step {
+            margin: 1.5rem 0;
+        }
+        
+        .step-by-step h4 {
+            color: var(--primary-color);
+            margin: 1.2rem 0 0.5rem;
+        }
+        
+        .step-by-step img {
+            max-width: 100%;
+            margin: 0.5rem 0;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(0,0,0,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            margin-top: 1.5rem;
+            position: relative;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            position: relative;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .theory-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .theory-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            nav ul li {
+                margin: 0.3rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.8rem;
+            }
+            
+            .section {
+                padding: 1.8rem;
+            }
+            
+            .input-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-infinity"></i> LIMITI MATEMATICI</h1>
+        <p>Un approccio completo alla teoria e al calcolo dei limiti con esercizi pratici e strumenti interattivi</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
+            <li><a href="#introduction"><i class="fas fa-lightbulb"></i> Introduzione</a></li>
+            <li><a href="#definition"><i class="fas fa-book"></i> Definizione</a></li>
+            <li><a href="#types"><i class="fas fa-project-diagram"></i> Tipologie</a></li>
+            <li><a href="#calculator"><i class="fas fa-calculator"></i> Calcolatore</a></li>
+            <li><a href="#exercises"><i class="fas fa-tasks"></i> Esercizi</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="team" class="section">
+            <h2><i class="fas fa-users"></i> Il Nostro Team</h2>
+            <p>Un gruppo di appassionati di matematica e sviluppo web che ha creato questa risorsa per aiutare gli studenti a comprendere i limiti matematici.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Francesco Marchetto</h3>
+                    <p>Frontend Developer - Leader</p>
+                </div>
+                <div class="team-member">
+                    <h3>Alessio Poli</h3>
+                    <p>Raccolta informazioni</p>
+                </div>
+                <div class="team-member">
+                    <h3>Giacomo Redi</h3>
+                    <p>Raccolta informazioni</p>
+                </div>
+                <div class="team-member">
+                    <h3>Riccardo Gianesella</h3>
+                    <p>Designer</p>
+                </div>
+                <div class="team-member">
+                    <h3>Nicolò Visentini</h3>
+                    <p>Backend Developer</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="introduction" class="section">
+            <h2><i class="fas fa-lightbulb"></i> Introduzione ai Limiti</h2>
+            <div class="theory-content">
+                <div class="theory-text">
+                    <p>Il concetto di limite è fondamentale in analisi matematica e descrive il comportamento di una funzione quando la sua variabile indipendente si avvicina a un particolare valore.</p>
+                    <p>I limiti permettono di studiare:</p>
+                    <ul style="margin: 1rem 0 1rem 2rem;">
+                        <li>Il comportamento delle funzioni in punti critici</li>
+                        <li>La continuità delle funzioni</li>
+                        <li>Le derivate e il calcolo differenziale</li>
+                        <li>Gli integrali e il calcolo integrale</li>
+                    </ul>
+                    <p>Questa sezione introduttiva fornisce le basi per comprendere l'importanza dei limiti nella matematica moderna.</p>
+                </div>
+                <div class="theory-image">
+                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;x_0}}f(x)=L" alt="Definizione di Limite">
+                </div>
+            </div>
+        </section>
+        
+        <section id="definition" class="section">
+            <h2><i class="fas fa-book"></i> Definizione Formale</h2>
+            <div class="theory-content">
+                <div class="theory-text">
+                    <p>La definizione rigorosa (ε-δ) di limite fu formulata da Augustin-Louis Cauchy e perfezionata da Karl Weierstrass:</p>
+                    <p><strong>Definizione:</strong> Sia f una funzione definita su un intervallo aperto contenente x₀ (eccetto eventualmente x₀ stesso). Diciamo che il limite di f(x) quando x tende a x₀ è L, e scriviamo:</p>
+                    <p style="margin: 1rem 0; font-style: italic;">Per ogni ε > 0 esiste un δ > 0 tale che per ogni x con 0 < |x - x₀| < δ, si ha |f(x) - L| < ε.</p>
+                    <p>Questa definizione cattura l'idea intuitiva che f(x) può essere resa arbitrariamente vicina a L prendendo x sufficientemente vicino a x₀.</p>
+                </div>
+                <div class="theory-image">
+                    <img src="https://latex.codecogs.com/svg.image?\forall&space;\epsilon&space;>&space;0,&space;\exists&space;\delta&space;>&space;0&space;:&space;|x-x_0|<\delta&space;\Rightarrow&space;|f(x)-L|<\epsilon" alt="Definizione Formale di Limite">
+                </div>
+            </div>
+        </section>
+        
+        <section id="types" class="section">
+            <h2><i class="fas fa-project-diagram"></i> Tipologie di Limiti</h2>
+            <div class="theory-content">
+                <div class="theory-text">
+                    <h3 style="margin-bottom: 1rem; color: var(--secondary-color);">1. Limiti Finiti</h3>
+                    <p>Quando x tende a un valore finito x₀ e il limite L è finito:</p>
+                    <p style="margin: 0.5rem 0;">Esempio: \( \lim_{{x \to 2}} (3x + 1) = 7 \)</p>
+                    
+                    <h3 style="margin: 1.5rem 0 1rem; color: var(--secondary-color);">2. Limiti Infiniti</h3>
+                    <p>Quando f(x) cresce senza limite avvicinandosi a x₀:</p>
+                    <p style="margin: 0.5rem 0;">Esempio: \( \lim_{{x \to 0}} \frac{1}{x^2} = +\infty \)</p>
+                    
+                    <h3 style="margin: 1.5rem 0 1rem; color: var(--secondary-color);">3. Limiti all'Infinito</h3>
+                    <p>Quando x tende a ±∞ e f(x) tende a un valore L:</p>
+                    <p style="margin: 0.5rem 0;">Esempio: \( \lim_{{x \to \infty}} \frac{1}{x} = 0 \)</p>
+                </div>
+                <div class="theory-image">
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;3}}(2x-5)=1" alt="Limite finito">
+                        <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;0^+}}\frac{1}{x}=+\infty" alt="Limite infinito">
+                        <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;-\infty}}e^x=0" alt="Limite all'infinito">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="calculator" class="section">
+            <h2><i class="fas fa-calculator"></i> Calcolatore di Limiti</h2>
+            <p>Utilizza questo strumento interattivo per calcolare i limiti delle funzioni matematiche. Inserisci la funzione e il punto in cui vuoi calcolare il limite.</p>
+            
+            <div class="calculator-container">
+                <div class="input-group">
+                    <input type="text" id="functionInput" placeholder="Inserisci la funzione (es. sin(x)/x)" value="(3x^2 + 2x - 5)/(x^2 + 1)">
+                    <select id="limitDirection">
+                        <option value="+">x →</option>
+                        <option value="+" selected>x → +∞</option>
+                        <option value="-">x → -∞</option>
+                    </select>
+                    <input type="text" id="limitPoint" placeholder="Punto limite (es. 0)" value="inf">
+                    <button class="btn" onclick="calculateAndPlot()"><i class="fas fa-calculator"></i> Calcola e Visualizza</button>
+                </div>
+                <div class="result-box" id="result">
+                    <p>Il risultato del limite apparirà qui dopo il calcolo.</p>
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <h3>Rappresentazione Grafica</h3>
+                <canvas id="graphCanvas" width="800" height="500"></canvas>
+            </div>
+        </section>
+        
+        <section id="exercises" class="section">
+            <h2><i class="fas fa-tasks"></i> Esercizi Pratici</h2>
+            <p>Metti alla prova la tua comprensione dei limiti con questi esercizi pratici, in particolare focalizzati su casi dove x o L tendono a infinito.</p>
+            
+            <div class="exercise">
+                <h3><i class="fas fa-question-circle"></i> Esercizio 1 - Limite all'infinito</h3>
+                <p>Calcola: \( \lim_{{x \to +\infty}} \frac{3x^2 + 5x - 2}{2x^2 - x + 7} \)</p>
+                
+                <div class="step-by-step">
+                    <h4>Passo 1: Riconoscere la forma</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\frac{\infty}{\infty}" alt="Forma indeterminata infinito su infinito">
+                    <p>Entrambi numeratore e denominatore tendono a infinito per x→∞</p>
+                    
+                    <h4>Passo 2: Dividere per il termine di grado massimo</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\frac{3x^2/x^2&space;+&space;5x/x^2&space;-&space;2/x^2}{2x^2/x^2&space;-&space;x/x^2&space;+&space;7/x^2}" alt="Divisione per x^2">
+                    
+                    <h4>Passo 3: Semplificare</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\frac{3&space;+&space;\frac{5}{x}&space;-&space;\frac{2}{x^2}}{2&space;-&space;\frac{1}{x}&space;+&space;\frac{7}{x^2}}" alt="Semplificazione">
+                    
+                    <h4>Passo 4: Calcolare il limite</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\frac{3&space;+&space;0&space;-&space;0}{2&space;-&space;0&space;+&space;0}&space;=&space;\frac{3}{2}" alt="Risultato finale">
+                </div>
+                
+                <button class="solution-toggle" onclick="toggleSolution(1)">Mostra Soluzione Completa</button>
+                <div class="solution" id="solution1" style="display: none;">
+                    <p><strong>Soluzione completa:</strong></p>
+                    <p>\[ \lim_{{x \to +\infty}} \frac{3x^2 + 5x - 2}{2x^2 - x + 7} = \frac{3}{2} \]</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3><i class="fas fa-question-circle"></i> Esercizio 2 - Limite infinito</h3>
+                <p>Calcola: \( \lim_{{x \to 0}} \frac{1}{x^2} \)</p>
+                
+                <div class="step-by-step">
+                    <h4>Passo 1: Analisi del comportamento</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\frac{1}{\text{numero&space;molto&space;piccolo}}&space;=&space;\text{numero&space;molto&space;grande}" alt="Analisi comportamento">
+                    
+                    <h4>Passo 2: Calcolo da destra e sinistra</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\begin{cases}&space;\lim_{{x\to&space;0^+}}\frac{1}{x^2}=+\infty&space;\\&space;\lim_{{x\to&space;0^-}}\frac{1}{x^2}=+\infty&space;\end{cases}" alt="Limite destro e sinistro">
+                    
+                    <h4>Passo 3: Conclusione</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;0}}\frac{1}{x^2}=+\infty" alt="Risultato finale">
+                </div>
+                
+                <button class="solution-toggle" onclick="toggleSolution(2)">Mostra Soluzione Completa</button>
+                <div class="solution" id="solution2" style="display: none;">
+                    <p><strong>Soluzione completa:</strong></p>
+                    <p>\[ \lim_{{x \to 0}} \frac{1}{x^2} = +\infty \]</p>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3><i class="fas fa-question-circle"></i> Esercizio 3 - Confronto tra infiniti</h3>
+                <p>Calcola: \( \lim_{{x \to +\infty}} \frac{x^3 - 2x + 1}{e^x} \)</p>
+                
+                <div class="step-by-step">
+                    <h4>Passo 1: Confronto tra crescita</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\text{Esponenziale}&space;>&space;\text{Polinomiale}" alt="Confronto crescita">
+                    
+                    <h4>Passo 2: Applicazione del teorema</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;+\infty}}\frac{P(x)}{e^x}=0" alt="Teorema">
+                    <p>Per qualsiasi polinomio P(x)</p>
+                    
+                    <h4>Passo 3: Risultato</h4>
+                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;+\infty}}\frac{x^3-2x+1}{e^x}=0" alt="Risultato finale">
+                </div>
+                
+                <button class="solution-toggle" onclick="toggleSolution(3)">Mostra Soluzione Completa</button>
+                <div class="solution" id="solution3" style="display: none;">
+                    <p><strong>Soluzione completa:</strong></p>
+                    <p>\[ \lim_{{x \to +\infty}} \frac{x^3 - 2x + 1}{e^x} = 0 \]</p>
+                    <p>L'esponenziale cresce molto più velocemente di qualsiasi funzione polinomiale.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p><strong>LIMITI MATEMATICI</strong> - Una risorsa didattica completa</p>
+        <p>Contattaci: <a href="mailto:info@limitimatematici.it">info@limitimatematici.it</a></p>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Tutti i diritti riservati. Creato con <i class="fas fa-heart" style="color: var(--accent-color);"></i> da appassionati di matematica.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize graph canvas
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Function to calculate and plot
+        function calculateAndPlot() {
+            const functionInput = document.getElementById('functionInput').value;
+            const direction = document.getElementById('limitDirection').value;
+            const point = document.getElementById('limitPoint').value;
+            
+            // Calculate the limit
+            const result = calculateLimit(functionInput, direction, point);
+            document.getElementById('result').innerHTML = `
+                <strong>Risultato:</strong> lim<sub>x→${direction === '+' ? '+' : '-'}${point}</sub> ${functionInput} = ${result}
+            `;
+            
+            // Plot the function
+            plotFunction(functionInput);
+        }
+        
+        // Calculate limit function
+        function calculateLimit(func, direction, point) {
+            try {
+                if (point.toLowerCase() === 'inf' || point.toLowerCase() === 'infinity') {
+                    // Calculate for infinity
+                    const x = direction === '+' ? 1e10 : -1e10;
+                    const expr = func.replace(/x/g, `(${x})`);
+                    const result = math.evaluate(expr);
+                    
+                    if (Math.abs(result) > 1e9) {
+                        return result > 0 ? '+∞' : '-∞';
+                    }
+                    return math.round(result, 3);
+                } else {
+                    // Calculate for finite point
+                    const expr = func.replace(/x/g, `(${point})`);
+                    return math.evaluate(expr);
+                }
+            } catch (e) {
+                return "Errore nel calcolo";
+            }
+        }
+        
+        // Plot function on canvas
+        function plotFunction(func) {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            drawAxes();
+            
+            // Set scale
+            const xMin = -10;
+            const xMax = 10;
+            const yMin = 0;
+            const yMax = 4;
+            
+            // Draw horizontal asymptote at y=3 (for the default function)
+            ctx.beginPath();
+            ctx.strokeStyle = "#3498db";
+            ctx.setLineDash([5, 3]);
+            const y3 = yToPixel(3, yMin, yMax);
+            ctx.moveTo(0, y3);
+            ctx.lineTo(canvas.width, y3);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Draw the function
+            ctx.beginPath();
+            ctx.strokeStyle = "#e74c3c";
+            ctx.lineWidth = 2;
+            
+            for (let x = xMin; x <= xMax; x += 0.1) {
+                try {
+                    const expr = func.replace(/x/g, `(${x})`);
+                    const y = math.evaluate(expr);
+                    
+                    const pixelX = xToPixel(x, xMin, xMax);
+                    const pixelY = yToPixel(y, yMin, yMax);
+                    
+                    if (x === xMin) {
+                        ctx.moveTo(pixelX, pixelY);
+                    } else {
+                        ctx.lineTo(pixelX, pixelY);
+                    }
+                } catch (e) {
+                    // Break and restart the path if there's an undefined point
+                    ctx.stroke();
+                    ctx.beginPath();
+                }
+            }
+            
+            ctx.stroke();
+            
+            // Add labels
+            ctx.font = "14px Arial";
+            ctx.fillStyle = "#3498db";
+            ctx.fillText("y = 3", 10, y3 - 5);
+            
+            ctx.fillStyle = "#2c3e50";
+            ctx.textAlign = "center";
+            ctx.fillText(func, canvas.width/2, 20);
+        }
+        
+        // Draw coordinate axes
+        function drawAxes() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            
+            ctx.beginPath();
+            ctx.strokeStyle = "#888";
+            ctx.lineWidth = 1;
+            
+            // X-axis
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(canvas.width, centerY);
+            
+            // Y-axis
+            ctx.moveTo(centerX, canvas.height);
+            ctx.lineTo(centerX, 0);
+            
+            // Arrows
+            ctx.moveTo(canvas.width, centerY);
+            ctx.lineTo(canvas.width-10, centerY-5);
+            ctx.moveTo(canvas.width, centerY);
+            ctx.lineTo(canvas.width-10, centerY+5);
+            
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX-5, 10);
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX+5, 10);
+            
+            ctx.stroke();
+        }
+        
+        // Convert x value to pixel coordinate
+        function xToPixel(x, xMin, xMax) {
+            return (x - xMin) / (xMax - xMin) * canvas.width;
+        }
+        
+        // Convert y value to pixel coordinate
+        function yToPixel(y, yMin, yMax) {
+            return canvas.height - (y - yMin) / (yMax - yMin) * canvas.height;
+        }
+        
+        // Toggle solution visibility
+        function toggleSolution(num) {
+            const solution = document.getElementById(`solution${num}`);
+            const button = event.target;
+            
+            if (solution.style.display === 'none') {
+                solution.style.display = 'block';
+                button.textContent = 'Nascondi Soluzione';
+            } else {
+                solution.style.display = 'none';
+                button.textContent = 'Mostra Soluzione';
+            }
+        }
+        
+        // Initialize the page
+        window.onload = function() {
+            calculateAndPlot();
+        };
+    </script>
+</body>
+</html>
