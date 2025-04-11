@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
     <style>
+        /* Mantieni lo stesso CSS del file originale */
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
@@ -16,20 +17,17 @@
             --text-color: #2c3e50;
             --white: #ffffff;
         }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light-color);
             color: var(--text-color);
             line-height: 1.6;
         }
-        
         /* Header Styles */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
@@ -39,7 +37,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         header::before {
             content: "";
             position: absolute;
@@ -51,20 +48,17 @@
             background-size: cover;
             opacity: 0.3;
         }
-        
         header h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
             position: relative;
         }
-        
         header p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
             position: relative;
         }
-        
         /* Navigation */
         nav {
             background-color: var(--dark-color);
@@ -73,7 +67,6 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
         nav ul {
             display: flex;
             justify-content: center;
@@ -81,11 +74,9 @@
             padding: 1rem 0;
             flex-wrap: wrap;
         }
-        
         nav ul li {
             margin: 0 1.5rem;
         }
-        
         nav ul li a {
             color: var(--white);
             text-decoration: none;
@@ -96,23 +87,19 @@
             display: flex;
             align-items: center;
         }
-        
         nav ul li a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
         }
-        
         nav ul li a i {
             margin-right: 8px;
         }
-        
         /* Main Content */
         .container {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 2rem;
         }
-        
         .section {
             background-color: var(--white);
             border-radius: 8px;
@@ -122,12 +109,10 @@
             border-top: 4px solid var(--secondary-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .section:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-        
         .section h2 {
             color: var(--primary-color);
             margin-bottom: 1.8rem;
@@ -136,12 +121,10 @@
             display: flex;
             align-items: center;
         }
-        
         .section h2 i {
             margin-right: 15px;
             color: var(--secondary-color);
         }
-        
         /* Team Section */
         .team-grid {
             display: grid;
@@ -149,7 +132,6 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-        
         .team-member {
             text-align: center;
             padding: 1.5rem;
@@ -159,23 +141,19 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             border: 1px solid #eee;
         }
-        
         .team-member:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             border-color: var(--secondary-color);
         }
-        
         .team-member h3 {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
-        
         .team-member p {
             color: var(--dark-color);
             font-size: 0.9rem;
         }
-        
         /* Theory Sections */
         .theory-content {
             display: grid;
@@ -183,18 +161,15 @@
             gap: 2rem;
             align-items: center;
         }
-        
         .theory-text {
             padding-right: 1rem;
         }
-        
         .theory-image {
             text-align: center;
             background-color: var(--light-color);
             padding: 1.5rem;
             border-radius: 8px;
         }
-        
         /* Calculator Section */
         .calculator-container {
             display: flex;
@@ -202,13 +177,11 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
-        
         .input-group {
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
         }
-        
         .input-group input, .input-group select {
             flex: 1;
             min-width: 250px;
@@ -218,12 +191,10 @@
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
-        
         .input-group input:focus, .input-group select:focus {
             border-color: var(--secondary-color);
             outline: none;
         }
-        
         .btn {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -238,17 +209,14 @@
             align-items: center;
             justify-content: center;
         }
-        
         .btn:hover {
             background-color: var(--primary-color);
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        
         .btn i {
             margin-right: 8px;
         }
-        
         .result-box {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -257,13 +225,78 @@
             font-size: 1.1rem;
             border-left: 4px solid var(--secondary-color);
         }
-        
+        /* Podcast Section */
+        .podcast-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .podcast-cover {
+            width: 200px;
+            height: 200px;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--secondary-color);
+        }
+        .podcast-info {
+            text-align: center;
+        }
+        .podcast-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .podcast-author {
+            font-size: 1rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        .podcast-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .podcast-controls button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .podcast-controls button:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .podcast-progress {
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            border-radius: 10px;
+            position: relative;
+            margin-top: 1rem;
+        }
+        .podcast-progress-fill {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
         /* Graph Section */
         .graph-container {
             margin: 3rem 0;
             text-align: center;
         }
-        
         canvas {
             max-width: 100%;
             border: 1px solid #ddd;
@@ -271,7 +304,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background-color: var(--white);
         }
-        
         /* Exercises Section */
         .exercise {
             background-color: var(--light-color);
@@ -281,7 +313,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .exercise::before {
             content: "";
             position: absolute;
@@ -291,25 +322,21 @@
             height: 100%;
             background-color: var(--secondary-color);
         }
-        
         .exercise h3 {
             margin-bottom: 1.5rem;
             color: var(--primary-color);
             display: flex;
             align-items: center;
         }
-        
         .exercise h3 i {
             margin-right: 10px;
             color: var(--accent-color);
         }
-        
         .solution {
             margin-top: 1.5rem;
             padding-top: 1.5rem;
             border-top: 1px dashed #ccc;
         }
-        
         .solution-toggle {
             background-color: var(--accent-color);
             color: white;
@@ -321,21 +348,17 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
-        
         .solution-toggle:hover {
             background-color: #c0392b;
         }
-        
         /* Step by step solution */
         .step-by-step {
             margin: 1.5rem 0;
         }
-        
         .step-by-step h4 {
             color: var(--primary-color);
             margin: 1.2rem 0 0.5rem;
         }
-        
         .step-by-step img {
             max-width: 100%;
             margin: 0.5rem 0;
@@ -344,7 +367,6 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
         /* Footer */
         footer {
             background-color: var(--primary-color);
@@ -354,7 +376,6 @@
             margin-top: 3rem;
             position: relative;
         }
-        
         footer::before {
             content: "";
             position: absolute;
@@ -365,27 +386,22 @@
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(0,0,0,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
             background-size: cover;
         }
-        
         footer p {
             margin-bottom: 1rem;
             position: relative;
         }
-        
         footer a {
             color: var(--secondary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
         footer a:hover {
             color: var(--white);
         }
-        
         .social-links {
             margin-top: 1.5rem;
             position: relative;
         }
-        
         .social-links a {
             color: var(--white);
             margin: 0 1rem;
@@ -393,56 +409,46 @@
             transition: all 0.3s ease;
             display: inline-block;
         }
-        
         .social-links a:hover {
             color: var(--secondary-color);
             transform: translateY(-3px);
         }
-        
         .copyright {
             margin-top: 2rem;
             font-size: 0.9rem;
             opacity: 0.8;
             position: relative;
         }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .theory-content {
                 grid-template-columns: 1fr;
             }
-            
             .theory-image {
                 order: -1;
             }
         }
-        
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2rem;
             }
-            
             nav ul {
                 flex-direction: column;
                 align-items: center;
                 gap: 0.5rem;
             }
-            
             nav ul li {
                 margin: 0.3rem 0;
                 width: 100%;
                 text-align: center;
             }
-            
             nav ul li a {
                 display: block;
                 padding: 0.8rem;
             }
-            
             .section {
                 padding: 1.8rem;
             }
-            
             .input-group {
                 flex-direction: column;
                 gap: 1rem;
@@ -455,37 +461,48 @@
         <h1><i class="fas fa-infinity"></i> OLTRE IL LIMITE</h1>
         <p>Un approccio completo alla teoria e al calcolo dei limiti con esercizi pratici e strumenti interattivi</p>
     </header>
-    
     <nav>
         <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
             <li><a href="#introduction"><i class="fas fa-lightbulb"></i> Introduzione</a></li>
             <li><a href="#definition"><i class="fas fa-book"></i> Definizione</a></li>
             <li><a href="#types"><i class="fas fa-project-diagram"></i> Tipologie</a></li>
             <li><a href="#calculator"><i class="fas fa-calculator"></i> Calcolatore</a></li>
             <li><a href="#exercises"><i class="fas fa-tasks"></i> Esercizi</a></li>
-            <li><a href="#Inglese"><i class="fas fa-tasks"></i> Inglese</a></li>
-
+            <li><a href="#podcast"><i class="fas fa-podcast"></i> Podcast</a></li>
+            <li><a href="#english-civics"><i class="fas fa-globe"></i> Inglese & Educazione Civica</a></li>
         </ul>
     </nav>
-    
     <div class="container">
+        <!-- HOME PAGE -->
+        <section id="home" class="section">
+            <h2><i class="fas fa-home"></i> Benvenuti</h2>
+            <p>Benvenuti nella nostra risorsa dedicata ai limiti matematici. Qui troverete:</p>
+            <ul>
+                <li>Una guida completa alla teoria dei limiti</li>
+                <li>Uno strumento interattivo per il calcolo dei limiti</li>
+                <li>Esercizi scaricabili in formato PDF</li>
+                <li>Sezioni speciali su inglese, educazione civica e podcast</li>
+            </ul>
+        </section>
+
+        <!-- TEAM SECTION -->
         <section id="team" class="section">
             <h2><i class="fas fa-users"></i> Il Nostro Team</h2>
             <p>Un gruppo di appassionati di matematica e sviluppo web che ha creato questa risorsa per aiutare gli studenti a comprendere i limiti matematici.</p>
-            
             <div class="team-grid">
                 <div class="team-member">
                     <h3>Francesco Marchetto</h3>
-                    <p>Frontend Developer - Leader</p>
+                    <p>Frontend Developer - Leader - Hitler</p>
                 </div>
                 <div class="team-member">
                     <h3>Alessio Poli</h3>
-                    <p>Esperto Matematico</p>
+                    <p>Esperto Matematico - Linguista - Mussolini</p>
                 </div>
                 <div class="team-member">
                     <h3>Giacomo Redi</h3>
-                    <p>Raccolta informazioni</p>
+                    <p>Raccolta informazioni - Comunista</p>
                 </div>
                 <div class="team-member">
                     <h3>Riccardo Gianesella</h3>
@@ -493,7 +510,29 @@
                 </div>
                 <div class="team-member">
                     <h3>Nicolò Visentini</h3>
-                    <p>Backend Developer</p>
+                    <p>Succhia bene la sacca scortale di Gianesella</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE PODCAST -->
+        <section id="podcast" class="section">
+            <h2><i class="fas fa-podcast"></i> Ascolta il Podcast</h2>
+            <p>Ascolta il nostro podcast dedicato ai concetti avanzati sui limiti matematici e applicazioni pratiche.</p>
+            <div class="podcast-container">
+                <div class="podcast-cover">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <div class="podcast-info">
+                    <div class="podcast-title">Episodio 1: Limiti e Infinito</div>
+                    <div class="podcast-author">Alessio Poli</div>
+                </div>
+                <div class="podcast-controls">
+                    <button onclick="togglePlayPause()"><i id="playPauseIcon" class="fas fa-play"></i></button>
+                    <button onclick="stopAudio()"><i class="fas fa-stop"></i></button>
+                </div>
+                <div class="podcast-progress">
+                    <div id="progressFill" class="podcast-progress-fill"></div>
                 </div>
             </div>
         </section>
@@ -557,10 +596,9 @@
             </div>
         </section>
         
-        <section id="calculator" class="section">
+         <section id="calculator" class="section">
             <h2><i class="fas fa-calculator"></i> Calcolatore di Limiti</h2>
             <p>Utilizza questo strumento interattivo per calcolare i limiti delle funzioni matematiche. Inserisci la funzione e il punto in cui vuoi calcolare il limite.</p>
-            
             <div class="calculator-container">
                 <div class="input-group">
                     <input type="text" id="functionInput" placeholder="Inserisci la funzione (es. sin(x)/x)" value="(3x^2 + 2x - 5)/(x^2 + 1)">
@@ -576,87 +614,9 @@
                     <p>Il risultato del limite apparirà qui dopo il calcolo.</p>
                 </div>
             </div>
-            
             <div class="graph-container">
                 <h3>Rappresentazione Grafica</h3>
                 <canvas id="graphCanvas" width="800" height="500"></canvas>
-            </div>
-        </section>
-        
-        <section id="exercises" class="section">
-            <h2><i class="fas fa-tasks"></i> Esercizi Pratici</h2>
-            <p>Metti alla prova la tua comprensione dei limiti con questi esercizi pratici, in particolare focalizzati su casi dove x o L tendono a infinito.</p>
-            
-            <div class="exercise">
-                <h3><i class="fas fa-question-circle"></i> Esercizio 1 - Limite all'infinito</h3>
-                <p>Calcola: \( \lim_{{x \to +\infty}} \frac{3x^2 + 5x - 2}{2x^2 - x + 7} \)</p>
-                
-                <div class="step-by-step">
-                    <h4>Passo 1: Riconoscere la forma</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\frac{\infty}{\infty}" alt="Forma indeterminata infinito su infinito">
-                    <p>Entrambi numeratore e denominatore tendono a infinito per x→∞</p>
-                    
-                    <h4>Passo 2: Dividere per il termine di grado massimo</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\frac{3x^2/x^2&space;+&space;5x/x^2&space;-&space;2/x^2}{2x^2/x^2&space;-&space;x/x^2&space;+&space;7/x^2}" alt="Divisione per x^2">
-                    
-                    <h4>Passo 3: Semplificare</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\frac{3&space;+&space;\frac{5}{x}&space;-&space;\frac{2}{x^2}}{2&space;-&space;\frac{1}{x}&space;+&space;\frac{7}{x^2}}" alt="Semplificazione">
-                    
-                    <h4>Passo 4: Calcolare il limite</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\frac{3&space;+&space;0&space;-&space;0}{2&space;-&space;0&space;+&space;0}&space;=&space;\frac{3}{2}" alt="Risultato finale">
-                </div>
-                
-                <button class="solution-toggle" onclick="toggleSolution(1)">Mostra Soluzione Completa</button>
-                <div class="solution" id="solution1" style="display: none;">
-                    <p><strong>Soluzione completa:</strong></p>
-                    <p>\[ \lim_{{x \to +\infty}} \frac{3x^2 + 5x - 2}{2x^2 - x + 7} = \frac{3}{2} \]</p>
-                </div>
-            </div>
-            
-            <div class="exercise">
-                <h3><i class="fas fa-question-circle"></i> Esercizio 2 - Limite infinito</h3>
-                <p>Calcola: \( \lim_{{x \to 0}} \frac{1}{x^2} \)</p>
-                
-                <div class="step-by-step">
-                    <h4>Passo 1: Analisi del comportamento</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\frac{1}{\text{numero&space;molto&space;piccolo}}&space;=&space;\text{numero&space;molto&space;grande}" alt="Analisi comportamento">
-                    
-                    <h4>Passo 2: Calcolo da destra e sinistra</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\begin{cases}&space;\lim_{{x\to&space;0^+}}\frac{1}{x^2}=+\infty&space;\\&space;\lim_{{x\to&space;0^-}}\frac{1}{x^2}=+\infty&space;\end{cases}" alt="Limite destro e sinistro">
-                    
-                    <h4>Passo 3: Conclusione</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;0}}\frac{1}{x^2}=+\infty" alt="Risultato finale">
-                </div>
-                
-                <button class="solution-toggle" onclick="toggleSolution(2)">Mostra Soluzione Completa</button>
-                <div class="solution" id="solution2" style="display: none;">
-                    <p><strong>Soluzione completa:</strong></p>
-                    <p>\[ \lim_{{x \to 0}} \frac{1}{x^2} = +\infty \]</p>
-                </div>
-            </div>
-            
-            <div class="exercise">
-                <h3><i class="fas fa-question-circle"></i> Esercizio 3 - Confronto tra infiniti</h3>
-                <p>Calcola: \( \lim_{{x \to +\infty}} \frac{x^3 - 2x + 1}{e^x} \)</p>
-                
-                <div class="step-by-step">
-                    <h4>Passo 1: Confronto tra crescita</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\text{Esponenziale}&space;>&space;\text{Polinomiale}" alt="Confronto crescita">
-                    
-                    <h4>Passo 2: Applicazione del teorema</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;+\infty}}\frac{P(x)}{e^x}=0" alt="Teorema">
-                    <p>Per qualsiasi polinomio P(x)</p>
-                    
-                    <h4>Passo 3: Risultato</h4>
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;+\infty}}\frac{x^3-2x+1}{e^x}=0" alt="Risultato finale">
-                </div>
-                
-                <button class="solution-toggle" onclick="toggleSolution(3)">Mostra Soluzione Completa</button>
-                <div class="solution" id="solution3" style="display: none;">
-                    <p><strong>Soluzione completa:</strong></p>
-                    <p>\[ \lim_{{x \to +\infty}} \frac{x^3 - 2x + 1}{e^x} = 0 \]</p>
-                    <p>L'esponenziale cresce molto più velocemente di qualsiasi funzione polinomiale.</p>
-                </div>
             </div>
         </section>
     </div>
@@ -688,13 +648,13 @@
             const functionInput = document.getElementById('functionInput').value;
             const direction = document.getElementById('limitDirection').value;
             const point = document.getElementById('limitPoint').value;
-            
+        
             // Calculate the limit
             const result = calculateLimit(functionInput, direction, point);
             document.getElementById('result').innerHTML = `
                 <strong>Risultato:</strong> lim<sub>x→${direction === '+' ? '+' : '-'}${point}</sub> ${functionInput} = ${result}
             `;
-            
+        
             // Plot the function
             plotFunction(functionInput);
         }
@@ -703,17 +663,16 @@
         function calculateLimit(func, direction, point) {
             try {
                 if (point.toLowerCase() === 'inf' || point.toLowerCase() === 'infinity') {
-                    // Calculate for infinity
-                    const x = direction === '+' ? 1e10 : -1e10;
+                    const x = direction === '+' ? 1e10 : -1e10; // Simula +∞ o -∞
                     const expr = func.replace(/x/g, `(${x})`);
                     const result = math.evaluate(expr);
-                    
+        
+                    // Gestisci risultati infiniti
                     if (Math.abs(result) > 1e9) {
                         return result > 0 ? '+∞' : '-∞';
                     }
-                    return math.round(result, 3);
+                    return math.round(result, 3); // Arrotonda il risultato a 3 decimali
                 } else {
-                    // Calculate for finite point
                     const expr = func.replace(/x/g, `(${point})`);
                     return math.evaluate(expr);
                 }
@@ -726,91 +685,108 @@
         function plotFunction(func) {
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+        
             // Draw axes
             drawAxes();
-            
+        
             // Set scale
             const xMin = -10;
             const xMax = 10;
-            const yMin = 0;
-            const yMax = 4;
-            
-            // Draw horizontal asymptote at y=3 (for the default function)
+            const yMin = -10;
+            const yMax = 10;
+        
+            // Draw the function as a continuous curve
             ctx.beginPath();
-            ctx.strokeStyle = "#3498db";
-            ctx.setLineDash([5, 3]);
-            const y3 = yToPixel(3, yMin, yMax);
-            ctx.moveTo(0, y3);
-            ctx.lineTo(canvas.width, y3);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            
-            // Draw the function
-            ctx.beginPath();
-            ctx.strokeStyle = "#e74c3c";
+            ctx.strokeStyle = "#e74c3c"; // Colore della funzione
             ctx.lineWidth = 2;
-            
+        
             for (let x = xMin; x <= xMax; x += 0.1) {
                 try {
                     const expr = func.replace(/x/g, `(${x})`);
                     const y = math.evaluate(expr);
-                    
                     const pixelX = xToPixel(x, xMin, xMax);
                     const pixelY = yToPixel(y, yMin, yMax);
-                    
+        
                     if (x === xMin) {
-                        ctx.moveTo(pixelX, pixelY);
+                        ctx.moveTo(pixelX, pixelY); // Inizia il tracciamento
                     } else {
-                        ctx.lineTo(pixelX, pixelY);
+                        ctx.lineTo(pixelX, pixelY); // Continua il tracciamento
                     }
                 } catch (e) {
-                    // Break and restart the path if there's an undefined point
+                    // Gestisce eventuali errori (es. divisione per zero)
                     ctx.stroke();
                     ctx.beginPath();
                 }
             }
-            
             ctx.stroke();
-            
+        
+            // Calcola il limite e aggiungi l'etichetta sul grafico
+            const direction = document.getElementById('limitDirection').value;
+            const point = document.getElementById('limitPoint').value;
+            const limitValue = calculateLimit(func, direction, point);
+        
+            if (limitValue !== "Errore nel calcolo") {
+                // Converti il punto limite in coordinate pixel
+                let limitX, limitY;
+                if (point.toLowerCase() === 'inf' || point.toLowerCase() === 'infinity') {
+                    limitX = direction === '+' ? canvas.width - 50 : 50; // Posizione limite a destra o sinistra
+                    limitY = yToPixel(limitValue, yMin, yMax);
+                } else {
+                    limitX = xToPixel(parseFloat(point), xMin, xMax);
+                    limitY = yToPixel(limitValue, yMin, yMax);
+                }
+        
+                // Disegna una linea tratteggiata per il limite
+                ctx.beginPath();
+                ctx.setLineDash([5, 5]);
+                ctx.strokeStyle = "#3498db";
+                ctx.moveTo(limitX, 0);
+                ctx.lineTo(limitX, canvas.height);
+                ctx.stroke();
+                ctx.setLineDash([]);
+        
+                // Aggiungi etichetta per il limite
+                ctx.font = "14px Arial";
+                ctx.fillStyle = "#3498db";
+                ctx.textAlign = "center";
+                ctx.fillText(`Limite: ${limitValue}`, limitX, limitY - 10);
+            }
+        
             // Add labels
             ctx.font = "14px Arial";
-            ctx.fillStyle = "#3498db";
-            ctx.fillText("y = 3", 10, y3 - 5);
-            
             ctx.fillStyle = "#2c3e50";
             ctx.textAlign = "center";
-            ctx.fillText(func, canvas.width/2, 20);
+            ctx.fillText(func, canvas.width / 2, 20);
         }
         
         // Draw coordinate axes
         function drawAxes() {
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
-            
+        
             ctx.beginPath();
             ctx.strokeStyle = "#888";
             ctx.lineWidth = 1;
-            
-            // X-axis
+        
+            // Asse X
             ctx.moveTo(0, centerY);
             ctx.lineTo(canvas.width, centerY);
-            
-            // Y-axis
-            ctx.moveTo(centerX, canvas.height);
-            ctx.lineTo(centerX, 0);
-            
-            // Arrows
-            ctx.moveTo(canvas.width, centerY);
-            ctx.lineTo(canvas.width-10, centerY-5);
-            ctx.moveTo(canvas.width, centerY);
-            ctx.lineTo(canvas.width-10, centerY+5);
-            
+        
+            // Asse Y
             ctx.moveTo(centerX, 0);
-            ctx.lineTo(centerX-5, 10);
+            ctx.lineTo(centerX, canvas.height);
+        
+            // Frecce
+            ctx.moveTo(canvas.width, centerY);
+            ctx.lineTo(canvas.width - 10, centerY - 5);
+            ctx.moveTo(canvas.width, centerY);
+            ctx.lineTo(canvas.width - 10, centerY + 5);
+        
             ctx.moveTo(centerX, 0);
-            ctx.lineTo(centerX+5, 10);
-            
+            ctx.lineTo(centerX - 5, 10);
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX + 5, 10);
+        
             ctx.stroke();
         }
         
@@ -827,19 +803,50 @@
         // Toggle solution visibility
         function toggleSolution(num) {
             const solution = document.getElementById(`solution${num}`);
-            const button = event.target;
-            
-            if (solution.style.display === 'none') {
-                solution.style.display = 'block';
-                button.textContent = 'Nascondi Soluzione';
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
             } else {
-                solution.style.display = 'none';
-                button.textContent = 'Mostra Soluzione';
+                solution.style.display = "none";
             }
         }
-        
+
+        // Podcast Audio Player
+        const audio = new Audio("podcast_episode.mp3"); // Sostituisci con il tuo file audio
+        let isPlaying = false;
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById("playPauseIcon").classList.remove("fa-pause");
+                document.getElementById("playPauseIcon").classList.add("fa-play");
+            } else {
+                audio.play();
+                document.getElementById("playPauseIcon").classList.remove("fa-play");
+                document.getElementById("playPauseIcon").classList.add("fa-pause");
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            isPlaying = false;
+            document.getElementById("playPauseIcon").classList.remove("fa-pause");
+            document.getElementById("playPauseIcon").classList.add("fa-play");
+            updateProgressBar(0);
+        }
+
+        function updateProgressBar(percent) {
+            document.getElementById("progressFill").style.width = percent + "%";
+        }
+
+        audio.addEventListener("timeupdate", () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            updateProgressBar(progress);
+        });
+
         // Initialize the page
-        window.onload = function() {
+        window.onload = function () {
             calculateAndPlot();
         };
     </script>
