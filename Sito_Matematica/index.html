@@ -584,7 +584,7 @@
                 
                 <div class="glossary-term">
                     <h3>Asintoto</h3>
-                    <p>Retta a cui la funzione si avvicina indefinitamente senza mai toccarla (o toccandola solo all'infinito). Può essere verticale, orizzontale o obliquo.</p>
+                    <p>Retta a cui la funzione si avvicina indefinitamente senza mai toccarla. Può essere verticale, orizzontale o obliquo.</p>
                 </div>
                 
                 <div class="glossary-term">
@@ -865,102 +865,150 @@
                         </a>
                     </div>
         </section>
-    </div>
-
-    
-
-    <!-- SEZIONE EDUCAZIONE CIVICA -->
-    <section id="english-civics" class="section">
-        <h2><i class="fas fa-globe"></i> Educazione Civica & Matematica</h2>
-        <div class="theory-content">
-            <div class="theory-text">
-                <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">1. Limiti Legali e Confini Sociali</h3>
-                <p>In matematica, un limite definisce un valore di avvicinamento (come negli asintoti). Analogamente, le leggi fissano confini al comportamento:</p>
-                <ul style="margin: 1rem 0 1rem 2rem;">
-                    <li><strong>Limiti di velocità</strong> → Valore massimo oltre il quale scattano sanzioni</li>
-                    <li><strong>Tasse progressive</strong> → Soglie che modificano l'aliquota</li>
-                </ul>
+        <!-- SEZIONE EDUCAZIONE CIVICA - VERSIONE 4 SUPERIORE -->
+        <section id="english-civics" class="section">
+            <h2><i class="fas fa-globe"></i> Educazione Civica & Matematica</h2>
+            
+            <div class="theory-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                <!-- Colonna di spiegazione -->
+                <div class="theory-text">
+                    <h3 style="color: var(--secondary-color);">1. Limiti e Leggi</h3>
+                    <p>I limiti matematici trovano un parallelo nelle leggi della società. Come una funzione non può superare certi valori, così i cittadini devono rispettare norme precise.</p>
+                    
+                    <p><strong>Esempi concreti:</strong></p>
+                    <ul>
+                        <li>Limiti di velocità come asintoti orizzontali</li>
+                        <li>Tasse progressive come funzioni a gradino</li>
+                        <li>Reati ambientali con sanzioni esponenziali</li>
+                    </ul>
+                </div>
                 
-                <div class="exercise" style="margin-top: 2rem;">
-                    <h4 style="color: var(--accent-color);">Esempio Pratico:</h4>
-                    <p>Le normative antinquinamento impongono <strong>limiti di emissione</strong> (es. PM10 ≤ 50 μg/m³). Superare questa soglia equivale a "tendere all'infinito" con conseguenze sanzionatorie.</p>
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{{\text{emissioni}\to\text{soglia}^+}\text{sanzioni}=+\infty" alt="Modello matematico" style="display: block; margin: 1rem auto; max-width: 100%;">
+                <!-- Colonna esempi -->
+                <div class="theory-examples" style="background: var(--light-color); padding: 1.5rem; border-radius: 8px;">
+                    <h4 style="color: var(--primary-color); margin-top: 0;">Formule chiave</h4>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <p><em>Limite di velocità:</em></p>
+                        <img src="https://latex.codecogs.com/svg.image?v(t)=\begin{cases}v_{max}&t\leq t_0\\v_{max}+k(t-t_0)^2&t>t_0\end{cases}" alt="Formula limite velocità" style="max-width: 100%;">
+                    </div>
+                    
+                    <div>
+                        <p><em>Tasse progressive:</em></p>
+                        <img src="https://latex.codecogs.com/svg.image?T(r)=\begin{cases}0.23r&r\leq15.000\\0.27(r-15.000)+3.450&15.000<r\leq28.000\end{cases}" alt="Formula tasse progressive" style="max-width: 100%;">
+                    </div>
                 </div>
             </div>
-            <div class="theory-image">
-                <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limiti di legge" style="border-radius: 8px;">
-                <p style="text-align: center; font-style: italic; margin-top: 0.5rem;">Segnali stradali come esempi di limiti sociali</p>
-            </div>
-        </div>
 
-        <div class="theory-content" style="margin-top: 3rem;">
-            <div class="theory-text">
-                <h3 style="color: var(--secondary-color); margin-bottom: 1rem;">2. Sostenibilità e Crescita Esponenziale</h3>
-                <p>La crescita illimitata di popolazione/consumi segue modelli esponenziali:</p>
-                <p style="margin: 1rem 0; text-align: center;">
-                    <img src="https://latex.codecogs.com/svg.image?P(t)=P_0e^{kt}" alt="Formula crescita esponenziale" style="max-width: 100%;">
-                </p>
-                <p>Ma la Terra ha <strong>limiti fisici</strong> (capacità di carico). L'Accordo di Parigi sul clima fissa soglie come:</p>
-                <ul style="margin: 1rem 0 1rem 2rem;">
-                    <li>Riscaldamento globale ≤ +1.5°C</li>
-                    <li>Emissioni zero nette entro il 2050</li>
-                </ul>
-            </div>
-            <div class="theory-image">
-                <div style="background-color: var(--light-color); padding: 1.5rem; border-radius: 8px;">
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{t\to2050}\text{CO}_2(t)=0" alt="Modello sostenibilità" style="max-width: 100%; margin-bottom: 1rem;">
-                    <p style="text-align: center;">Obiettivo di neutralità carbonica come limite matematico</p>
+            <div class="theory-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; align-items: start;">
+                <!-- Colonna di spiegazione -->
+                <div class="theory-text">
+                    <h3 style="color: var(--secondary-color);">2. Crescita e Sostenibilità</h3>
+                    <p>La crescita esponenziale incontra limiti fisici, proprio come lo sviluppo sostenibile richiede di rispettare i confini ambientali.</p>
+                    
+                    <p><strong>Applicazioni:</strong></p>
+                    <ul>
+                        <li>Modelli di crescita demografica</li>
+                        <li>Consumo di risorse non rinnovabili</li>
+                        <li>Accordi sul clima come vincoli</li>
+                    </ul>
+                </div>
+                
+                <!-- Colonna esempi -->
+                <div class="theory-examples" style="background: var(--light-color); padding: 1.5rem; border-radius: 8px;">
+                    <h4 style="color: var(--primary-color); margin-top: 0;">Modelli matematici</h4>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <p><em>Crescita demografica:</em></p>
+                        <img src="https://latex.codecogs.com/svg.image?P(t)=P_0\cdot(1+r)^t" alt="Formula crescita demografica" style="max-width: 100%;">
+                    </div>
+                    
+                    <div>
+                        <p><em>Limite CO₂:</em></p>
+                        <img src="https://latex.codecogs.com/svg.image?C(t)\leq400\,ppm\,\forall\,t\geq2050" alt="Formula limite CO2" style="max-width: 100%;">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="exercise" style="margin-top: 3rem;">
-            <h3><i class="fas fa-tasks"></i> Esercizio Interdisciplinare</h3>
-            <p>Una città ha una legge che impone multe progressive per chi supera i 100 dB di rumore:</p>
-            <p style="text-align: center; margin: 1rem 0;">
-                <img src="https://latex.codecogs.com/svg.image?M(d)=\begin{cases}0&\text{se}&space;d\leq100\\50(d-100)^2&\text{se}&space;d>100\end{cases}" alt="Funzione multe" style="max-width: 100%;">
-            </p>
-            <p>Calcola:</p>
-            <ol style="margin-left: 2rem;">
-                <li>Il limite per d → 100⁺</li>
-                <li>Interpreta il risultato nel contesto civico</li>
-            </ol>
-            
-            <!-- Soluzione visibile senza toggle -->
-            <div class="solution" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed #ccc;">
-                <p><strong>Soluzione:</strong></p>
-                <p>1) lim<sub>d→100⁺</sub> 50(d-100)² = 0</p>
-                <p>2) La funzione è continua: le multe partono da 0 e crescono progressivamente, incentivando il rispetto del limite.</p>
-            </div>
-            
-            <!-- Alternativa con checkbox (senza JavaScript) -->
-            <details style="margin-top: 1.5rem;">
-                <summary style="background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem; width: fit-content;">
-                    Mostra/Nascondi Soluzione
-                </summary>
-                <div style="margin-top: 1rem; padding: 1rem; background-color: var(--light-color); border-radius: 4px;">
-                    <p><strong>Soluzione:</strong></p>
-                    <p>1) lim<sub>d→100⁺</sub> 50(d-100)² = 0</p>
-                    <p>2) La funzione è continua: le multe partono da 0 e crescono progressivamente, incentivando il rispetto del limite.</p>
+            <!-- ESERCIZIO INTERDISCIPLINARE -->
+            <div class="exercise" style="margin-top: 3rem; border-top: 2px solid var(--secondary-color); padding-top: 1.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h3><i class="fas fa-tasks"></i> Esercizio Applicativo</h3>
+                        <p>Una città vuole limitare l'inquinamento acustico. Il livello di rumore R(t) in decibel varia nel tempo secondo:</p>
+                        
+                        <p><strong>Dati:</strong></p>
+                        <ul>
+                            <li>Soglia legale: 75 dB</li>
+                            <li>Multa base: €50</li>
+                            <li>Incremento: €10 per ogni dB oltre la soglia</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: var(--light-color); padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: var(--primary-color); margin-top: 0;">Problema</h4>
+                        <p>1. Scrivi la funzione M(R) che calcola la multa</p>
+                        <p>2. Calcola lim<sub>R→75⁺</sub> M(R)</p>
+                        
+                        <details style="margin-top: 1rem;">
+                            <summary style="background-color: var(--accent-color); color: white; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; display: inline-block;">
+                                Mostra soluzione
+                            </summary>
+                            <div style="margin-top: 1rem;">
+                                <p>1) <img src="https://latex.codecogs.com/svg.image?M(R)=\begin{cases}0&R\leq75\\50+10(R-75)&R>75\end{cases}" alt="Soluzione esercizio" style="height:1.5em; vertical-align: middle;"></p>
+                                <p>2) lim = €50</p>
+                            </div>
+                        </details>
+                    </div>
                 </div>
-            </details>
-        </div>
-    </section>
+            </div>
+        </section>
+
+        <style>
+            /* Stili aggiuntivi per migliorare la visualizzazione */
+            .theory-container {
+                margin-bottom: 2rem;
+            }
+            .theory-text {
+                padding-right: 1.5rem;
+            }
+            .theory-examples img {
+                display: block;
+                margin: 0.5rem auto;
+            }
+            @media (max-width: 768px) {
+                .theory-container {
+                    grid-template-columns: 1fr;
+                }
+                .theory-text {
+                    padding-right: 0;
+                }
+        }
+        </style>
+
+    </div>    
 
 
-    
     <footer>
         <p><strong>LIMITI MATEMATICI</strong> - Una risorsa didattica completa</p>
-        <p>Contattaci: <a href="mailto:info@limitimatematici.it">info@limitimatematici.it</a></p>
-        
+        <h3>Contatti:</h3>
+
+        <a href="mailto:francesco.marchetto@iisviolamarchesini.edu.it">Francesco Marchetto</a>
+        <br>
+        <a href="mailto:alessio.poli@iisviolamarchesini.edu.it">Alessio Poli</a>
+        <br>
+        <a href="mailto:riccardo.gianesella@iisviolamarchesini.edu.it">Riccardo Gianesella</a>
+        <br>
+        <a href="mailto:nicolò.nero@iisviolamarchesini.edu.it">Nicolò Nero</a>
+        <br>
+        <a href="mailto:redi.giacomo@iisviolamarchesini.edu.it">Redi Giacomo</a>
+        <br>
         <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/FMarck07" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-        
         <div class="copyright">
             <p>&copy; 2025 Tutti i diritti riservati. Creato con <i class="fas fa-heart" style="color: var(--accent-color);"></i> da appassionati di matematica.</p>
         </div>
