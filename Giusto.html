@@ -454,6 +454,44 @@
                 gap: 1rem;
             }
         }
+
+#glossary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.glossary-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 1200px; /* Limita la larghezza massima */
+    padding: 0 1rem; /* Aggiungi un po' di padding laterale */
+}
+
+.glossary-term {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+    text-align: left; /* Allinea il testo a sinistra dentro ogni termine */
+}
+
+.glossary-term h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.glossary-term p {
+    color: var(--dark-color);
+    font-size: 0.95rem;
+}
     </style>
 </head>
 <body>
@@ -473,6 +511,7 @@
             <li><a href="#podcast"><i class="fas fa-podcast"></i> Podcast</a></li>
             <li><a href="#english-civics"><i class="fas fa-globe"></i> Inglese & Educazione Civica</a></li>
             <li><a href="#guidedExercises"><i class="fas fa-tasks"></i> Esercizi Guidati</a></li>
+            <li><a href="#glossary"><i class="fas fa-book-open"></i> Glossario</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -661,6 +700,64 @@
                             <i class="fas fa-download" download></i> Scarica gli Esercizi Guidati(PDF)
                         </a>
                     </div>
+        </section>
+ 
+        <!-- SEZIONE GLOSSARIO -->
+        <section id="glossary" class="section">
+            <h2><i class="fas fa-book-open"></i> Glossario</h2>
+            <p>Definizioni dei principali termini matematici utilizzati nel sito:</p>
+            
+            <div class="glossary-container">
+                <div class="glossary-term">
+                    <h3>Limite</h3>
+                    <p>Valore a cui tende una funzione quando la variabile indipendente si avvicina a un certo punto (finito o infinito).</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Intorno</h3>
+                    <p>Insieme di punti vicini a un punto dato. Nella definizione formale di limite, si considerano intorni arbitrariamente piccoli.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Punto di accumulazione</h3>
+                    <p>Punto x₀ tale che in ogni suo intorno cadono infiniti punti del dominio della funzione diversi da x₀ stesso.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Forma indeterminata</h3>
+                    <p>Espressione come 0/0 o ∞/∞ che non ha un valore definito a priori e richiede ulteriori analisi per determinare il limite.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Asintoto</h3>
+                    <p>Retta a cui la funzione si avvicina indefinitamente senza mai toccarla (o toccandola solo all'infinito). Può essere verticale, orizzontale o obliquo.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Continuità</h3>
+                    <p>Una funzione è continua in un punto se il limite in quel punto coincide con il valore della funzione in quel punto.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Limite destro/sinistro</h3>
+                    <p>Valore a cui tende la funzione quando x si avvicina a x₀ rispettivamente da destra (valori maggiori) o da sinistra (valori minori).</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Infinito (∞)</h3>
+                    <p>Concetto matematico che rappresenta una quantità senza limite, che cresce oltre ogni prefissato valore finito.</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Funzione</h3>
+                    <p>Relazione tra due insiemi che associa a ogni elemento del primo insieme (dominio) uno e un solo elemento del secondo insieme (codominio).</p>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Dominio</h3>
+                    <p>Insieme dei valori della variabile indipendente x per cui la funzione è definita.</p>
+                </div>
+            </div>
         </section>
     </div>
     
