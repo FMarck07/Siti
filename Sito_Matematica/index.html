@@ -507,6 +507,7 @@
             <li><a href="#podcast"><i class="fas fa-podcast"></i> Podcast</a></li>
             <li><a href="#introduction"><i class="fas fa-lightbulb"></i> Introduzione</a></li>
             <li><a href="#definition"><i class="fas fa-book"></i> Definizione</a></li>
+            <li><a href="#definitionP"><i class="fas fa-book"></i> Definizione Particolare</a></li>
             <li><a href="#types"><i class="fas fa-project-diagram"></i> Tipologie</a></li>
             <li><a href="#calculator"><i class="fas fa-calculator"></i> Calcolatore</a></li>
             <li><a href="#exercises"><i class="fas fa-tasks"></i> Esercizi</a></li>
@@ -613,6 +614,51 @@
             </div>
         </section>
 
+
+
+        <!-- SEZIONE SIMBOLI DEL LIMITE -->
+        <section id="glossary" class="section">
+            <h2><i class="fas fa-infinity"></i> Glossario Dei Simboli</h2>
+            <p>Spiegazione dei simboli presenti nella definizione formale di limite:</p>
+
+            <div class="glossary-container">
+                <div class="glossary-term">
+                    <h3>⟺</h3>
+                    <p>"se e solo se": definisce un'equivalenza logica tra il limite e la condizione che segue.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h3>∀U</h3>
+                    <p>"Per ogni intorno 𝑈 di 𝑙": cioè per ogni intervallo aperto contenente il valore 𝑙</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h3>∃V</h3>
+                    <p>"Esiste un intorno 𝑉 di 𝑥0 ": un intervallo aperto contenente il punto 𝑥0.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h3>x ∈ (V ∩ D)</h3>
+                    <p>x appartiene sia all'intorno 𝑉 che al dominio 𝐷 della funzione.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h3>(V ∩ D) - {𝑥0}</h3>
+                    <p>    Si esclude esplicitamente il punto 𝑥0: si guardano i punti vicini a 𝑥0, ma non 𝑥0 stesso.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h3>⇒</h3>
+                    <p>"implica che": se 𝑥 è in quell'insieme, allora deve verificarsi la condizione successiva.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h3>𝑓(𝑥) ∈ U</h3>
+                    <p>Il valore della funzione 𝑓(𝑥) deve trovarsi all'interno dell’intorno 𝑈 di 𝑙.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- SEZIONE PODCAST -->
         <section id="podcast" class="section">
             <h2><i class="fas fa-podcast"></i> Ascolta il Podcast</h2>
@@ -673,6 +719,66 @@
                 </div>
             </div>
         </section>
+
+
+        <section id="definitionP" class="section">
+            <h2><i class="fas fa-book"></i> Definizione Particolare di Limite (x₀ e l infiniti)</h2>
+            <div class="theory-content">
+                <div class="theory-text">
+                    <p><strong>Definizione per x₀ = +∞ e l = +∞:</strong></p>
+                    <p>Diciamo che la funzione f(x) tende a +∞ per x che tende a +∞, e scriviamo:</p>
+                    <p style="text-align: center; margin: 1rem 0; font-weight: bold;">
+                        lim<sub>x→+∞</sub> f(x) = +∞
+                    </p>
+                    
+                    <p><strong>Definizione per x₀ = +∞ e l = -∞:</strong></p>
+                    <p>Diciamo che la funzione f(x) tende a -∞ per x che tende a +∞, e scriviamo:</p>
+                    <p style="text-align: center; margin: 1rem 0; font-weight: bold;">
+                        lim<sub>x→+∞</sub> f(x) = -∞
+                    </p>
+                    
+                </div>
+                <div class="theory-image">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <!-- Esempio 1: x^3 -->
+                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=x^3" alt="x^3" style="max-width: 100%;">
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                lim<sub>x→+∞</sub> x³ = +∞<br>
+                                lim<sub>x→-∞</sub> x³ = -∞
+                            </p>
+                        </div>
+                        
+                        <!-- Esempio 2: e^x -->
+                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=e^x" alt="e^x" style="max-width: 100%;">
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                lim<sub>x→+∞</sub> eˣ = +∞<br>
+                                lim<sub>x→-∞</sub> eˣ = 0
+                            </p>
+                        </div>
+                        
+                        <!-- Esempio 3: -x^2 -->
+                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=-x^2" alt="-x^2" style="max-width: 100%;">
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                lim<sub>x→+∞</sub> -x² = -∞<br>
+                                lim<sub>x→-∞</sub> -x² = -∞
+                            </p>
+                        </div>
+                        
+                        <!-- Esempio 4: ln(x) -->
+                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=\ln(x)" alt="ln(x)" style="max-width: 100%;">
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                lim<sub>x→+∞</sub> ln(x) = +∞<br>
+                                lim<sub>x→0⁺</sub> ln(x) = -∞
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <section id="types" class="section">
             <h2><i class="fas fa-project-diagram"></i> Tipologie di Limiti</h2>
@@ -698,7 +804,7 @@
             </div>
         </section>
         
-         <section id="calculator" class="section">
+        <section id="calculator" class="section">
             <h2><i class="fas fa-calculator"></i> Calcolatore di Limiti</h2>
             <p>Utilizza questo strumento interattivo per calcolare i limiti delle funzioni matematiche. Inserisci la funzione e il punto in cui vuoi calcolare il limite.</p>
             <div class="calculator-container">
