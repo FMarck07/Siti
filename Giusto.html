@@ -458,7 +458,7 @@
 </head>
 <body>
     <header>
-        <h1><i class="fas fa-infinity"></i> OLTRE IL LIMITE</h1>
+        <h1><i class="fas fa-infinity"></i> VAI OLTRE IL LIMITE</h1>
         <p>Un approccio completo alla teoria e al calcolo dei limiti con esercizi pratici e strumenti interattivi</p>
     </header>
     <nav>
@@ -494,15 +494,15 @@
             <div class="team-grid">
                 <div class="team-member">
                     <h3>Francesco Marchetto</h3>
-                    <p>Frontend Developer - Leader - Hitler</p>
+                    <p>Frontend Developer - Leader</p>
                 </div>
                 <div class="team-member">
                     <h3>Alessio Poli</h3>
-                    <p>Esperto Matematico - Linguista - Mussolini</p>
+                    <p>Esperto Matematico</p>
                 </div>
                 <div class="team-member">
                     <h3>Giacomo Redi</h3>
-                    <p>Raccolta informazioni - Comunista</p>
+                    <p>Raccolta informazioni</p>
                 </div>
                 <div class="team-member">
                     <h3>Riccardo Gianesella</h3>
@@ -510,7 +510,7 @@
                 </div>
                 <div class="team-member">
                     <h3>Nicolò Visentini</h3>
-                    <p>Succhia bene la sacca scortale di Gianesella</p>
+                    <p>Backend Developer</p>
                 </div>
             </div>
         </section>
@@ -559,13 +559,19 @@
             <h2><i class="fas fa-book"></i> Definizione Generale di Limite</h2>
             <div class="theory-content">
                 <div class="theory-text">
-                    <p>La definizione rigorosa (ε-δ) di limite fu formulata da Augustin-Louis Cauchy e perfezionata da Karl Weierstrass:</p>
-                    <p><strong>Definizione:</strong> Sia f una funzione definita su un intervallo aperto contenente x₀ (eccetto eventualmente x₀ stesso). Diciamo che il limite di f(x) quando x tende a x₀ è L, e scriviamo:</p>
-                    <p style="margin: 1rem 0; font-style: italic;">Per ogni ε > 0 esiste un δ > 0 tale che per ogni x con 0 < |x - x₀| < δ, si ha |f(x) - L| < ε.</p>
-                    <p>Questa definizione cattura l'idea intuitiva che f(x) può essere resa arbitrariamente vicina a L prendendo x sufficientemente vicino a x₀.</p>
+                    <p><strong>Definizione:</strong> Siano x₀, l ∈ R^* e sia f(x) una funzione di dominio D, tale che x₀ sia un punto di accumulazione per D. Diremo che la funzione f(x) tende a l quando x tende a x₀ scriveremo che:</p>
+                    <br>
+                    <p>lim x -> x₀ f(x) = l</p>
+                    <br>
+                    <p>Se è verificata la seguente condizione:</p>
+                    <ul>
+                        <li>a. Per ogni intorno U di l,</li>
+                        <li>b. Esiste un intorno V di x₀,</li>
+                        <li>c. Tale che per ogni x in V ∩ D con x ≠ x₀, risulta f(x) ∈ U.</li>
+                    </ul>
                 </div>
                 <div class="theory-image">
-                    <img src="https://latex.codecogs.com/svg.image?\forall&space;\epsilon&space;>&space;0,&space;\exists&space;\delta&space;>&space;0&space;:&space;|x-x_0|<\delta&space;\Rightarrow&space;|f(x)-L|<\epsilon" alt="Definizione Formale di Limite">
+                    <img src="DefinizioneGeneraleLimite.png" alt="Definizione Formale di Limite" style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </section>
@@ -576,21 +582,19 @@
                 <div class="theory-text">
                     <h3 style="margin-bottom: 1rem; color: var(--secondary-color);">1. Limiti Finiti</h3>
                     <p>Quando x tende a un valore finito x₀ e il limite L è finito:</p>
-                    <p style="margin: 0.5rem 0;">Esempio: \( \lim_{{x \to 2}} (3x + 1) = 7 \)</p>
+                    <p style="margin: 0.5rem 0;">Esempio: lim (x → 2)   (3x + 1) = 7</p>
                     
                     <h3 style="margin: 1.5rem 0 1rem; color: var(--secondary-color);">2. Limiti Infiniti</h3>
                     <p>Quando f(x) cresce senza limite avvicinandosi a x₀:</p>
-                    <p style="margin: 0.5rem 0;">Esempio: \( \lim_{{x \to 0}} \frac{1}{x^2} = +\infty \)</p>
+                    <p style="margin: 0.5rem 0;">Esempio: lim (x → 0)   1 / x^2 = +∞</p>
                     
                     <h3 style="margin: 1.5rem 0 1rem; color: var(--secondary-color);">3. Limiti all'Infinito</h3>
                     <p>Quando x tende a ±∞ e f(x) tende a un valore L:</p>
-                    <p style="margin: 0.5rem 0;">Esempio: \( \lim_{{x \to \infty}} \frac{1}{x} = 0 \)</p>
+                    <p style="margin: 0.5rem 0;">Esempio: lim (x → ∞)   1 / x = 0</p>
                 </div>
                 <div class="theory-image">
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;3}}(2x-5)=1" alt="Limite finito">
-                        <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;0^+}}\frac{1}{x}=+\infty" alt="Limite infinito">
-                        <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;-\infty}}e^x=0" alt="Limite all'infinito">
+                        <img src="https://latex.codecogs.com/svg.image?\dpi{400} \Huge \boldsymbol{ \begin{array}{c} \lim_{{x\to&space;2}}(3x&plus;1)=7\\ \lim_{{x\to&space;0}}\frac{1}{x^2}=+\infty\\ \lim_{{x\to&space;\infty}}\frac{1}{x}=0 \end{array} }" alt="Esempi di Limiti" style="display: block; margin: 0 auto; width: 100%; max-width: 500px; height: auto;">
                     </div>
                 </div>
             </div>
@@ -617,6 +621,34 @@
             <div class="graph-container">
                 <h3>Rappresentazione Grafica</h3>
                 <canvas id="graphCanvas" width="800" height="500"></canvas>
+            </div>
+        </section>
+        
+                <!-- SEZIONE ESERCIZI -->
+        <section id="exercises" class="section">
+            <h2><i class="fas fa-tasks"></i> Esercizi sui Limiti</h2>
+            <div class="theory-content">
+                <div class="theory-text">
+                    <p>Metti alla prova la tua comprensione dei limiti con la nostra raccolta completa di esercizi:</p>
+                    <ul style="margin: 1rem 0 1rem 2rem;">
+                        <li>Esercizi di base sui limiti finiti</li>
+                        <li>Limiti notevoli e forme indeterminate</li>
+                        <li>Limiti infiniti e asintoti</li>
+                        <li>Limiti di funzioni trigonometriche</li>
+                    </ul>
+                    <p>Scarica la raccolta completa in formato PDF per esercitarti.</p>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="https://drive.google.com/file/d/16djgbgmfDyoKfwCSUH3f3q_24mqYej5H/view?usp=drive_link" class="btn" style="text-decoration: none;">
+                            <i class="fas fa-download"></i> Scarica gli Esercizi (PDF)
+                        </a>
+                    </div>
+                </div>
+                <div class="theory-image">
+                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to\infty}}(x^3+2x^2-5x+1)=\infty" alt="Limite infinito">
+                    <div style="text-align: center; margin-top: 1rem; font-style: italic;">
+                        Esempio di limite infinito incluso negli esercizi
+                    </div>
+                </div>
             </div>
         </section>
     </div>
