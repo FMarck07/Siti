@@ -659,28 +659,89 @@
             </div>
         </section>
 
-        <!-- SEZIONE PODCAST -->
-        <section id="podcast" class="section">
-            <h2><i class="fas fa-podcast"></i> Ascolta il Podcast</h2>
-            <p>Ascolta il nostro podcast dedicato ai concetti avanzati sui limiti matematici e applicazioni pratiche.</p>
-            <div class="podcast-container">
-                <div class="podcast-cover">
-                    <i class="fas fa-microphone"></i>
-                </div>
-                <div class="podcast-info">
-                    <div class="podcast-title">Episodio 1: Limiti e Infinito</div>
-                    <div class="podcast-author">Alessio Poli</div>
-                </div>
-                <div class="podcast-controls">
-                    <button onclick="togglePlayPause()"><i id="playPauseIcon" class="fas fa-play"></i></button>
-                    <button onclick="stopAudio()"><i class="fas fa-stop"></i></button>
-                </div>
-                <div class="podcast-progress">
-                    <div id="progressFill" class="podcast-progress-fill"></div>
-                </div>
-            </div>
-        </section>
-        
+       <!-- SEZIONE PODCAST -->
+<section id="podcast" class="section">
+    <h2><i class="fas fa-podcast"></i> Ascolta il Podcast</h2>
+    <p>Ascolta il nostro podcast dedicato ai concetti avanzati sui limiti matematici e applicazioni pratiche.</p>
+    <div class="podcast-container">
+        <div class="podcast-cover">
+            <i class="fas fa-microphone"></i>
+        </div>
+        <div class="podcast-info">
+            <div class="podcast-title">Introduzione ai limiti</div>
+            <div class="podcast-author">Giacomo Redi</div>
+        </div>
+
+        <!-- AUDIO -->
+        <audio id="podcastAudio">
+            <source src="AUDIO GIANE.mp3" type="audio/mpeg">
+            Il tuo browser non supporta l'elemento audio.
+        </audio>
+
+        <!-- CONTROLLI -->
+        <div class="podcast-controls">
+            <button onclick="togglePlayPause()"><i id="playPauseIcon" class="fas fa-play"></i></button>
+            <button onclick="stopAudio()"><i class="fas fa-stop"></i></button>
+        </div>
+
+        <!-- PROGRESS BAR -->
+        <div class="podcast-progress">
+            <div id="progressFill" class="podcast-progress-fill"></div>
+        </div>
+
+        <!-- TEMPI -->
+        <div class="podcast-time">
+            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPT AUDIO -->
+<script>
+    const audio1 = document.getElementById('podcastAudio');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const currentTimeSpan = document.getElementById('currentTime');
+    const durationSpan = document.getElementById('duration');
+    const progressFill = document.getElementById('progressFill');
+
+    function togglePlayPause() {
+        if (audio1.paused) {
+            audio1.play();
+            playPauseIcon.classList.remove('fa-play');
+            playPauseIcon.classList.add('fa-pause');
+        } else {
+            audio1.pause();
+            playPauseIcon.classList.remove('fa-pause');
+            playPauseIcon.classList.add('fa-play');
+        }
+    }
+
+    function stopAudio() {
+        audio1.pause();
+        audio1.currentTime = 0;
+        playPauseIcon.classList.remove('fa-pause');
+        playPauseIcon.classList.add('fa-play');
+    }
+
+    audio1.addEventListener('loadedmetadata', () => {
+        durationSpan.textContent = formatTime(audio1.duration);
+    });
+
+    audio1.addEventListener('timeupdate', () => {
+        currentTimeSpan.textContent = formatTime(audio1.currentTime);
+        const percent = (audio1.currentTime / audio.duration) * 100;
+        progressFill.style.width = percent + '%';
+    });
+
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? '0' + sec : sec}`;
+    }
+</script>
+
+
+
         <section id="introduction" class="section">
             <h2><i class="fas fa-lightbulb"></i> Introduzione ai Limiti</h2>
             <div class="theory-content">
@@ -693,9 +754,8 @@
                     </ul>
                     <p>Questa sezione introduttiva fornisce le basi per comprendere l'importanza dei limiti nella matematica moderna.</p>
                 </div>
-                <div class="theory-image">
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to&space;x_0}}f(x)=L" alt="Definizione di Limite">
-                </div>
+                <img src="fx.png" alt="Definizione Formale di Limite" style="max-width: 100%; height: 65%;">
+                
             </div>
         </section>
         
@@ -740,41 +800,7 @@
                 </div>
                 <div class="theory-image">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <!-- Esempio 1: x^3 -->
-                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=x^3" alt="x^3" style="max-width: 100%;">
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                                lim<sub>x→+∞</sub> x³ = +∞<br>
-                                lim<sub>x→-∞</sub> x³ = -∞
-                            </p>
-                        </div>
-                        
-                        <!-- Esempio 2: e^x -->
-                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=e^x" alt="e^x" style="max-width: 100%;">
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                                lim<sub>x→+∞</sub> eˣ = +∞<br>
-                                lim<sub>x→-∞</sub> eˣ = 0
-                            </p>
-                        </div>
-                        
-                        <!-- Esempio 3: -x^2 -->
-                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=-x^2" alt="-x^2" style="max-width: 100%;">
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                                lim<sub>x→+∞</sub> -x² = -∞<br>
-                                lim<sub>x→-∞</sub> -x² = -∞
-                            </p>
-                        </div>
-                        
-                        <!-- Esempio 4: ln(x) -->
-                        <div style="background-color: var(--light-color); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://latex.codecogs.com/svg.image?\dpi{200}\large&space;f(x)=\ln(x)" alt="ln(x)" style="max-width: 100%;">
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                                lim<sub>x→+∞</sub> ln(x) = +∞<br>
-                                lim<sub>x→0⁺</sub> ln(x) = -∞
-                            </p>
-                        </div>
+                        <img src="casi.png" alt="Definizione Formale di Limite" style="max-width: 200%; height: auto;">
                     </div>
                 </div>
             </div>
@@ -796,11 +822,8 @@
                     <p>Quando x tende a ±∞ e f(x) tende a un valore L:</p>
                     <p style="margin: 0.5rem 0;">Esempio: lim (x → ∞)   1 / x = 0</p>
                 </div>
-                <div class="theory-image">
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <img src="https://latex.codecogs.com/svg.image?\dpi{400} \Huge \boldsymbol{ \begin{array}{c} \lim_{{x\to&space;2}}(3x&plus;1)=7\\ \lim_{{x\to&space;0}}\frac{1}{x^2}=+\infty\\ \lim_{{x\to&space;\infty}}\frac{1}{x}=0 \end{array} }" alt="Esempi di Limiti" style="display: block; margin: 0 auto; width: 100%; max-width: 500px; height: auto;">
-                    </div>
-                </div>
+                <img src="image.png" alt="Definizione Formale di Limite" style="max-width: 100%; height: auto;">
+                
             </div>
         </section>
         
@@ -848,10 +871,7 @@
                     </div>
                 </div>
                 <div class="theory-image">
-                    <img src="https://latex.codecogs.com/svg.image?\lim_{{x\to\infty}}(x^3+2x^2-5x+1)=\infty" alt="Limite infinito">
-                    <div style="text-align: center; margin-top: 1rem; font-style: italic;">
-                        Esempio di limite infinito incluso negli esercizi
-                    </div>
+                    <img src="Rob.png" alt="Definizione Formale di Limite" style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </section>
@@ -884,19 +904,7 @@
                 </div>
                 
                 <!-- Colonna esempi -->
-                <div class="theory-examples" style="background: var(--light-color); padding: 1.5rem; border-radius: 8px;">
-                    <h4 style="color: var(--primary-color); margin-top: 0;">Formule chiave</h4>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <p><em>Limite di velocità:</em></p>
-                        <img src="https://latex.codecogs.com/svg.image?v(t)=\begin{cases}v_{max}&t\leq t_0\\v_{max}+k(t-t_0)^2&t>t_0\end{cases}" alt="Formula limite velocità" style="max-width: 100%;">
-                    </div>
-                    
-                    <div>
-                        <p><em>Tasse progressive:</em></p>
-                        <img src="https://latex.codecogs.com/svg.image?T(r)=\begin{cases}0.23r&r\leq15.000\\0.27(r-15.000)+3.450&15.000<r\leq28.000\end{cases}" alt="Formula tasse progressive" style="max-width: 100%;">
-                    </div>
-                </div>
+                <img src="gianne.png" alt="Definizione Formale di Limite" style="max-width: 100%; height: auto;">
             </div>
 
             <div class="theory-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; align-items: start;">
@@ -914,19 +922,7 @@
                 </div>
                 
                 <!-- Colonna esempi -->
-                <div class="theory-examples" style="background: var(--light-color); padding: 1.5rem; border-radius: 8px;">
-                    <h4 style="color: var(--primary-color); margin-top: 0;">Modelli matematici</h4>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <p><em>Crescita demografica:</em></p>
-                        <img src="https://latex.codecogs.com/svg.image?P(t)=P_0\cdot(1+r)^t" alt="Formula crescita demografica" style="max-width: 100%;">
-                    </div>
-                    
-                    <div>
-                        <p><em>Limite CO₂:</em></p>
-                        <img src="https://latex.codecogs.com/svg.image?C(t)\leq400\,ppm\,\forall\,t\geq2050" alt="Formula limite CO2" style="max-width: 100%;">
-                    </div>
-                </div>
+                <img src="Screenshot 2025-04-15 235650.png" alt="Definizione Formale di Limite" style="max-width: 100%; height: auto;">
             </div>
 
             <!-- ESERCIZIO INTERDISCIPLINARE -->
@@ -998,7 +994,7 @@
         <br>
         <a href="mailto:riccardo.gianesella@iisviolamarchesini.edu.it">Riccardo Gianesella</a>
         <br>
-        <a href="mailto:nicolò.nero@iisviolamarchesini.edu.it">Nicolò Nero</a>
+        <a href="mailto:nicolò.visentini@iisviolamarchesini.edu.it">Nicolò Visentini</a>
         <br>
         <a href="mailto:redi.giacomo@iisviolamarchesini.edu.it">Redi Giacomo</a>
         <br>
