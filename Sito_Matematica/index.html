@@ -419,41 +419,189 @@
             opacity: 0.8;
             position: relative;
         }
-        /* Responsive */
-        @media (max-width: 992px) {
-            .theory-content {
-                grid-template-columns: 1fr;
-            }
-            .theory-image {
-                order: -1;
-            }
-        }
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-            nav ul li {
-                margin: 0.3rem 0;
-                width: 100%;
-                text-align: center;
-            }
-            nav ul li a {
-                display: block;
-                padding: 0.8rem;
-            }
-            .section {
-                padding: 1.8rem;
-            }
-            .input-group {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
+
+/* Regole per tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .section {
+        padding: 1.8rem;
+    }
+    
+    .theory-content {
+        gap: 1.5rem;
+    }
+    
+    .podcast-cover {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Regole per smartphone (fino a 767px) */
+@media (max-width: 767px) {
+    header {
+        padding: 2rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+    
+    nav ul li {
+        margin: 0.3rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 0.8rem;
+        justify-content: center;
+    }
+    
+    .container {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .theory-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .theory-image {
+        order: -1;
+        margin-bottom: 1.5rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .input-group input, 
+    .input-group select {
+        min-width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 0.8rem;
+    }
+    
+    .glossary-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .podcast-cover {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+    
+    .podcast-title {
+        font-size: 1.3rem;
+    }
+    
+    canvas {
+        height: 300px;
+    }
+    
+    /* Layout a colonne per educazione civica */
+    .theory-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Riduci il padding degli esercizi */
+    .exercise {
+        padding: 1.2rem;
+    }
+    
+    /* Footer mobile */
+    footer {
+        padding: 2rem 1rem;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Regole per smartphone molto piccoli (fino a 480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .podcast-controls button {
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+    
+    /* Riduci ulteriormente il canvas */
+    canvas {
+        height: 250px;
+    }
+}
+
+/* Orientamento landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+    .container {
+        margin: 1rem auto;
+    }
+    
+    .section {
+        padding: 1rem;
+    }
+    
+    /* Riduci gli spazi verticali */
+    header {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Mostra le voci di navigazione su una riga */
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin: 0.2rem;
+        width: auto;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem;
+    }
+}
 
 #glossary {
     display: flex;
@@ -740,20 +888,20 @@
             <i class="fas fa-microphone"></i>
         </div>
         <div class="podcast-info">
-            <div class="podcast-title">Introduzione ai limiti</div>
-            <div class="podcast-author">Giacomo Redi</div>
+            <div class="podcast-title">I limiti</div>
+            <div class="podcast-author">Giacomo Redi, Alessio Poli, Riccardo Gianesella, Niccolò Visentini</div>
         </div>
 
         <!-- AUDIO -->
         <audio id="podcastAudio">
-            <source src="AUDIO GIANE.mp3" type="audio/mpeg">
+            <source src="audioFinale.mp3" type="audio/mpeg">
             Il tuo browser non supporta l'elemento audio.
         </audio>
 
         <!-- CONTROLLI -->
         <div class="podcast-controls">
-            <button onclick="togglePlayPause()"><i id="playPauseIcon" class="fas fa-play"></i></button>
-            <button onclick="stopAudio()"><i class="fas fa-stop"></i></button>
+            <button id="playPauseBtn" onclick="togglePlayPause()"><i id="playPauseIcon" class="fas fa-play"></i></button>
+            <button id="stopBtn" onclick="stopAudio()"><i class="fas fa-stop"></i></button>
         </div>
 
         <!-- PROGRESS BAR -->
@@ -770,40 +918,52 @@
 
 <!-- SCRIPT AUDIO -->
 <script>
-    const audio1 = document.getElementById('podcastAudio');
+    const audio = document.getElementById('podcastAudio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
     const playPauseIcon = document.getElementById('playPauseIcon');
+    const stopBtn = document.getElementById('stopBtn');
     const currentTimeSpan = document.getElementById('currentTime');
     const durationSpan = document.getElementById('duration');
     const progressFill = document.getElementById('progressFill');
 
+    // Aggiorna la durata quando i metadati sono caricati
+    audio.addEventListener('loadedmetadata', () => {
+        durationSpan.textContent = formatTime(audio.duration);
+    });
+
+    // Aggiorna il tempo corrente e la progress bar
+    audio.addEventListener('timeupdate', () => {
+        currentTimeSpan.textContent = formatTime(audio.currentTime);
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = percent + '%';
+    });
+
+    // Ripristina l'icona play quando l'audio finisce
+    audio.addEventListener('ended', () => {
+        playPauseIcon.classList.remove('fa-pause');
+        playPauseIcon.classList.add('fa-play');
+    });
+
     function togglePlayPause() {
-        if (audio1.paused) {
-            audio1.play();
+        if (audio.paused) {
+            audio.play();
             playPauseIcon.classList.remove('fa-play');
             playPauseIcon.classList.add('fa-pause');
         } else {
-            audio1.pause();
+            audio.pause();
             playPauseIcon.classList.remove('fa-pause');
             playPauseIcon.classList.add('fa-play');
         }
     }
 
     function stopAudio() {
-        audio1.pause();
-        audio1.currentTime = 0;
+        audio.pause();
+        audio.currentTime = 0;
         playPauseIcon.classList.remove('fa-pause');
         playPauseIcon.classList.add('fa-play');
+        progressFill.style.width = '0%';
+        currentTimeSpan.textContent = '0:00';
     }
-
-    audio1.addEventListener('loadedmetadata', () => {
-        durationSpan.textContent = formatTime(audio1.duration);
-    });
-
-    audio1.addEventListener('timeupdate', () => {
-        currentTimeSpan.textContent = formatTime(audio1.currentTime);
-        const percent = (audio1.currentTime / audio.duration) * 100;
-        progressFill.style.width = percent + '%';
-    });
 
     function formatTime(seconds) {
         const min = Math.floor(seconds / 60);
@@ -1097,14 +1257,6 @@
         </style>
 
     </div>    
-
-
-    
-
-
-    
-
-
     
     <script>
         // Initialize graph canvas
@@ -1279,7 +1431,7 @@
         }
 
         // Podcast Audio Player
-        const audio = new Audio("AUDIOGIANE.adts"); // Sostituisci con il tuo file audio
+        /**const audio = new Audio("audioFinale.mp3"); // Sostituisci con il tuo file audio
         let isPlaying = false;
 
         function togglePlayPause() {
@@ -1316,7 +1468,7 @@
         // Initialize the page
         window.onload = function () {
             calculateAndPlot();
-        };
+        };*/
     </script>
 </body>
 </html>
