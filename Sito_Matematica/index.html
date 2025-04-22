@@ -492,6 +492,76 @@
     color: var(--dark-color);
     font-size: 0.95rem;
 }
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 300px;
+    margin: 15px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.team-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.team-list li {
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
     </style>
 </head>
 <body>
@@ -513,6 +583,8 @@
             <li><a href="#exercises"><i class="fas fa-tasks"></i> Esercizi</a></li>
             <li><a href="#guidedExercises"><i class="fas fa-tasks"></i> Esercizi Guidati</a></li>
             <li><a href="#english-civics"><i class="fas fa-globe"></i>Educazione Civica</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i>Contatti</a></li>
+
         </ul>
     </nav>
     <div class="container">
@@ -967,6 +1039,40 @@
                 </div>
             </div>
         </section>
+        <section id="contact" class="section">
+            <h2><i class="fas fa-envelope"></i> Contattaci</h2>
+            <p>Hai domande o vuoi collaborare? Compila il form qui sotto e ti risponderemo al più presto!</p>
+            <div class="container">
+                <form class="contact-form" action="contatti.php" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome:</label>
+                        <input type="text" id="cognome" name="cognome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="oggetto">Oggetto:</label>
+                        <select id="oggetto" name="oggetto">
+                            <option value="info">Informazioni</option>
+                            <option value="segnalazione">Segnalazione</option>
+                            <option value="collaborazione">Proposta di collaborazione</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="messaggio">Messaggio:</label>
+                        <textarea id="messaggio" name="messaggio" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Invia Messaggio</button>
+                </form>
+            </div>
+        </section>
 
         <style>
             /* Stili aggiuntivi per migliorare la visualizzazione */
@@ -993,31 +1099,10 @@
     </div>    
 
 
-    <footer>
-        <p><strong>LIMITI MATEMATICI</strong> - Una risorsa didattica completa</p>
-        <h3>Contatti:</h3>
+    
 
-        <a href="mailto:francesco.marchetto@iisviolamarchesini.edu.it">Francesco Marchetto</a>
-        <br>
-        <a href="mailto:alessio.poli@iisviolamarchesini.edu.it">Alessio Poli</a>
-        <br>
-        <a href="mailto:riccardo.gianesella@iisviolamarchesini.edu.it">Riccardo Gianesella</a>
-        <br>
-        <a href="mailto:nicolò.visentini@iisviolamarchesini.edu.it">Nicolò Visentini</a>
-        <br>
-        <a href="mailto:redi.giacomo@iisviolamarchesini.edu.it">Redi Giacomo</a>
-        <br>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="https://github.com/FMarck07" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 Tutti i diritti riservati. Creato con <i class="fas fa-heart" style="color: var(--accent-color);"></i> da appassionati di matematica.</p>
-        </div>
-    </footer>
+
+    
 
 
     
@@ -1194,7 +1279,7 @@
         }
 
         // Podcast Audio Player
-        const audio = new Audio("podcast_episode.mp3"); // Sostituisci con il tuo file audio
+        const audio = new Audio("AUDIOGIANE.adts"); // Sostituisci con il tuo file audio
         let isPlaying = false;
 
         function togglePlayPause() {
