@@ -1429,46 +1429,6 @@
                 solution.style.display = "none";
             }
         }
-
-        // Podcast Audio Player
-        /**const audio = new Audio("audioFinale.mp3"); // Sostituisci con il tuo file audio
-        let isPlaying = false;
-
-        function togglePlayPause() {
-            if (isPlaying) {
-                audio.pause();
-                document.getElementById("playPauseIcon").classList.remove("fa-pause");
-                document.getElementById("playPauseIcon").classList.add("fa-play");
-            } else {
-                audio.play();
-                document.getElementById("playPauseIcon").classList.remove("fa-play");
-                document.getElementById("playPauseIcon").classList.add("fa-pause");
-            }
-            isPlaying = !isPlaying;
-        }
-
-        function stopAudio() {
-            audio.pause();
-            audio.currentTime = 0;
-            isPlaying = false;
-            document.getElementById("playPauseIcon").classList.remove("fa-pause");
-            document.getElementById("playPauseIcon").classList.add("fa-play");
-            updateProgressBar(0);
-        }
-
-        function updateProgressBar(percent) {
-            document.getElementById("progressFill").style.width = percent + "%";
-        }
-
-        audio.addEventListener("timeupdate", () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            updateProgressBar(progress);
-        });
-
-        // Initialize the page
-        window.onload = function () {
-            calculateAndPlot();
-        };*/
     </script>
 </body>
 </html>
